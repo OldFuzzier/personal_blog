@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='category.css') }}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <center>
+        <h1>Directory</h1>
+        <p class="article-subtitle">There have directory </p>
+    </center>
+</header>
+<div class="post-article">
+    <h3>My life</h3>
+    <ul><li><a>This my personal life  -- category</a></li></ul>
+    <ul><li><a>I have some good idea  -- category</a></li></ul>
+    <ul><li><a>Python is good sound  -- category</a></li></ul>
+    <ul><li><a>My books -- category</a></li></ul>
+    <h3>Python</h3>
+    <ul><li><a>This my personal life  -- category</a></li></ul>
+    <ul><li><a>I have some good idea  -- category</a></li></ul>
+    <ul><li><a>Python is good sound  -- category</a></li></ul>
+    <ul><li><a>My books -- category</a></li></ul>
+</div>
+{% endblock %}

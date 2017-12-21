@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='tag.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="post-article">
+    <header>
+        <center>
+            <h1>Tags</h1>
+            <p class="article-subtitle">Some Tags </p>
+        </center>
+    </header>
+
+    <section>
+        <a class="post-tag-item" href="#">python</a>
+        <a class="post-tag-item" href="#">flask</a>
+        <a class="post-tag-item" href="#">MyLife</a>
+        <a class="post-tag-item" href="#">love</a>
+    </section>
+
+</div>
+{% endblock %}

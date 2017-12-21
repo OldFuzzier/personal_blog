@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>OldPomegranateTree</title>
+    <link rel="ShortCut Icon" href="{{ url_for('static', filename='image/pomegranate.jpg') }}">
+	<!-- 适配移动端 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="{{ url_for('static', filename='jquery-3.1.1.min.js') }}"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <!-- map -->
+    <script src="{{ url_for('static', filename='bootstrap.min.css.map') }}"></script>
+    <!-- 自己的 base.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    {% block head %}{% endblock %}
 </head>
 <body>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li><a href="/">Home</a></li>
+            <li><a href="/article">Articles</a></li>
+            <li><a href="/directory">Directory</a></li>
+            <li><a href="/tag">Tags</a></li>
+            {% block li %}{% endblock %}
+            <li><a href="{{ url_for('auth.v_management') }}">Management</a></li>
+        </ul>
 
+        {% block content %}{% endblock %}
+
+        <footer>
+            <center>
+                <span><script>document.write(new Date().getFullYear());</script></span>  <!--获取当前年份-->
+                &copy
+                <a href="/">Fuzzier</a>
+            </center>
+        </footer>
+    </div>
 </body>
 </html>
