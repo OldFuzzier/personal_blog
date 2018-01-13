@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+    <center>
+        <h3>PostArticle</h3>
+    </center>
+</header>
+
+<div class="post-article">
+    <form action="{{ url_for('auth.v_post') }}" method="POST">
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" name="title" placeholder="new title">
+      </div>
+      <div class="form-group">
+        <label>Content</label>
+        <textarea name="content" class="form-control" rows="13"></textarea>
+      </div>
+      <div class="form-group">
+          <label><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Category</label>
+          <br />
+          {% for tuple_name in category_list %}
+          <label class="checkbox-inline">
+              <input type="checkbox"  name="option_list" value="{{ tuple_name[0]}}"> {{ tuple_name[0] }}
+          </label>
+          {% endfor %}
+          <!--
+          <label class="checkbox-inline">
+              <input type="checkbox"  value="option1"> Python
+          </label>
+          <label class="checkbox-inline">
+              <input type="checkbox"  value="option2"> Flask
+          </label>
+          <label class="checkbox-inline">
+              <input type="checkbox" value="option3"> Note
+          </label>
+          -->
+      </div>
+      <div class="form-group">
+        <label>
+            <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Title
+        </label>
+        <p class="help-block">If you have multi tag, please use ';' to divide</p>
+        <input type="text" class="form-control" name="tag" placeholder="tags">
+      </div>
+      <div class="form-group">
+          <label><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Protect</label>
+          <br />
+            <label class="checkbox-inline">
+              <input type="checkbox" name="personal_flag" value="1"> Check me out and this article is protected for only you
+            </label>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

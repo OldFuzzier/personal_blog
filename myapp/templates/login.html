@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+    <center>
+        <h1>Sign in</h1>
+    </center>
+</header>
+
+<div class="post-article">
+<form class="form-size" action="{{ url_for('main.v_login') }}" method="POST">
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="email" class="form-control" name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+</div>
+
+{% endblock %}

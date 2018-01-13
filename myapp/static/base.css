@@ -5,8 +5,9 @@ footer {
 
 center {
     display: block;
-    text-align: -webkit-center
+    text-align: -webkit-center;
 }
+
 
 /* bootstrap a标签的蓝色 */
 .footer_color {
@@ -16,23 +17,40 @@ center {
 
 header {
     margin-bottom: 30px;
-    border-bottom: 1px solid #eee
+    border-bottom: 1px solid #eee;
 }
 
 center .article-title {
     margin-top: 30px;
-    font-size: 42px
+    font-size: 42px;
 }
 
 center .article-subtitle {
     margin-bottom: 40px;
-    color: #6e6e6e
+    color: #6e6e6e;
+}
+
+center .article-meta {
+    margin-bottom: 30px;
+    color: #91989F;
 }
 
 .post-article {
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 
 .date-color {
-    color: #b6b6b6
+    color: #b6b6b6;
+}
+
+span .space {
+    padding:10px;
+}
+
+.post-p {
+    font-weight: 700;
+}
+
+.form-size{
+    padding: 60px;
 }

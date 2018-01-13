@@ -1,5 +1,7 @@
 # coding=utf-8
 
+from flask import render_template
+
 # 这么写是为了避免相互导入
 class ErrorHandler(object):
 
@@ -7,4 +9,5 @@ class ErrorHandler(object):
 
         @app.errorhandler(404)
         def v_error(error):
-            return 'im error', 404
+            return render_template('error.html'), 404
+

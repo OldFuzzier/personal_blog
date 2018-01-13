@@ -3,11 +3,10 @@
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
-from myapp.mainapp import app
-from myapp.db_middle import db
+from myapp.mainapp import app, db
 
 # 需要将需要的model导入，以便MigrateCommand调用
-from myapp.model import User, Article, Tag, Category, article_category, article_tag, Directory
+from myapp.model import User, Article, Tag, Category, article_category, article_tag
 
 manager = Manager(app)
 

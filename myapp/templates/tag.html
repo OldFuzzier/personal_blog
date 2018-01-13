@@ -9,15 +9,14 @@
     <header>
         <center>
             <h1>Tags</h1>
-            <p class="article-subtitle">Some Tags </p>
+            <p class="article-subtitle"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Some Tags </p>
         </center>
     </header>
 
     <section>
-        <a class="post-tag-item" href="#">python</a>
-        <a class="post-tag-item" href="#">flask</a>
-        <a class="post-tag-item" href="#">MyLife</a>
-        <a class="post-tag-item" href="#">love</a>
+    {% for tag_tuple in tag_list %}
+        <a class="post-tag-item" href="{{ url_for('main.v_tag_archive', name=tag_tuple[0]) }}">{{ tag_tuple[0] | e }}</a>
+    {% endfor %}
     </section>
 
 </div>

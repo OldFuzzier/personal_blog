@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+    <center>
+        <h3>Edit {{ choice }}</h3>
+    </center>
+</header>
+<div class="post-article">
+    <form class="form-size" action="{{ url_for('auth.v_edit_ca_tag', name=name, flag=choice) }}" method="POST">
+        <div class="form-group">
+            <label for="change">Change on here</label>
+            <input type="text" class="form-control" id="change" name='change' placeholder="{{ name }}">
+        </div>
+        <button type="submit" class="btn btn-success">change</button>
+    </form>
+</div>
+{% endblock %}

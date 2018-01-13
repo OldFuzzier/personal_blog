@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+    <center>
+        <h1>Category</h1>
+        <p class="article-subtitle"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> There have category </p>
+    </center>
+</header>
+<div class="post-article">
+
+    {% for category_tuple in category_list %}
+    <ul>
+        <li>
+            <a href="{{ url_for('main.v_ca_archive', name=category_tuple[0]) }}">{{ category_tuple[0] | e }}</a>
+            <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+        </li>
+    </ul>
+    {% endfor %}
+
+</div>
+{% endblock %}

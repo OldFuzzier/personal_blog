@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header>
+        <center>
+            <h3>Manage {{ choice }}</h3>
+        </center>
+    </header>
+    <div class="post-article">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>category_name</th>
+                <th>article_number</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for tag_tuple in tag_list %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ tag_tuple[0] | e }}</td>
+                <td>{{ tag_tuple[1] }}</td>
+                <td><a href="{{ url_for('auth.v_edit_ca_tag', name=tag_tuple[0], flag='Tag') }}">edit</a></td>
+                <td><a href="{{ url_for('auth.v_delete', name=tag_tuple[0], flag='Tag') }}">delete</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    <!-- 返回顶部 -->
+    <div class="pull-right">
+        <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+        <a class="back-to-top" href="#top">Back_to_top</a>
+    </div>
+
+    </div>
+
+
+{% endblock %}

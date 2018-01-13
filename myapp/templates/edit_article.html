@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+    <center>
+        <h3>EditArticle</h3>
+    </center>
+</header>
+
+<div class="post-article">
+    <form action="{{ url_for('auth.v_editarticle', name=article.title) }}" method="POST">
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" name="title" placeholder="title" value="{{ article.title }}">
+      </div>
+      <div class="form-group">
+        <label>Content</label>
+        <textarea id='area' name="content" class="form-control" rows="13" placeholder="content"></textarea>
+      </div>
+      <div class="form-group">
+          <label><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Category</label>
+          <br />
+          {% for tuple_name in category_list %}
+          <label class="checkbox-inline">
+              {% if tuple_name[0] in article_categorys_list %}  <!-- 判断这个article下的所有分类 -->
+              <input type="checkbox"  name="option_list" value="{{ tuple_name[0] }}" checked> {{ tuple_name[0] }}
+              {% else %}
+              <input type="checkbox"  name="option_list" value="{{ tuple_name[0] }}"> {{ tuple_name[0] }}
+              {% endif %}
+          </label>
+          {% endfor %}
+      </div>
+      <div class="form-group">
+        <label>
+            <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Title
+        </label>
+        <p class="help-block">If you have multi tag, please use ';' to divide</p>
+        <input type="text" class="form-control" name="tag" placeholder="tags" value="{{ article_tags_list | join(';') }}">
+      </div>
+      <div class="form-group">
+          <label><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Protect</label>
+          <br />
+            <label class="checkbox-inline">
+                {% if article.personal_flag %}
+                <input type="checkbox" name="personal_flag" value="1" checked>
+                {% else %}
+                <input type="checkbox" name="personal_flag" value="1">
+                {% endif %}
+                 Check me out and this article is protected for only you
+            </label>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
+
+<!-- 暂时无发实现
+{% block script %}
+var area = document.getElementById('area');
+area.innerHTML = "{{ article.content  | e }}"
+{% endblock %}
+-->
+

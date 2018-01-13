@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+    <center>
+        <h1>Mangement</h1>
+        <p class="article-subtitle"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> This is management </p>
+    </center>
+</header>
+
+<div class="post-article">
+    <h3>User Profile <span class="glyphicon glyphicon-user" aria-hidden="true"></span></h3>
+    <p><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><a href="{{ url_for('auth.v_logout') }}"> Logout</a></p>
+    <p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Have seen total: {{ total_see }}</p>
+
+    <h3>Your Category <span class="glyphicon glyphicon-list" aria-hidden="true"></span></h3>
+    <p><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><a href="{{ url_for('auth.v_arrange', flag='Category') }}"> You can arrange your category</a></p>
+
+    <h3>Your Tags <span class="glyphicon glyphicon-tags" aria-hidden="true"></span></h3>
+    <p><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><a href="{{ url_for('auth.v_arrange', flag='Tag') }}"> You can arrange your tag</a></p>
+
+    <h3>Your Archive <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></h3>
+    <p><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><a href="{{ url_for('auth.v_arrange', flag='Archive') }}"> You can arrange your articles</a></p>
+
+</div>
+
+{% endblock %}

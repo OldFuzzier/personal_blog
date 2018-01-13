@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header>
+        <center>
+            <h3>Manage {{ choice }}</h3>
+        </center>
+    </header>
+    <div class="post-article">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>category_name</th>
+                <th>article_number</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category_tuple in category_list %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ category_tuple[0] | e }}</td>
+                <td>{{ category_tuple[1] }}</td>
+                <td><a href="{{ url_for('auth.v_edit_ca_tag', name=category_tuple[0], flag='Category') }}">edit</a></td>
+                <td><a href="{{ url_for('auth.v_delete', name=category_tuple[0], flag='Category') }}">delete</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <form class="form-inline" action="{{ url_for('auth.v_add_ca') }}" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" placeholder="add new category">
+            </div>
+            <button type="submit" class="btn btn-success">Add</button>
+        </form>
+
+    <!-- 返回顶部 -->
+    <div class="pull-right">
+        <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+        <a class="back-to-top" href="#top">Back_to_top</a>
+    </div>
+
+    </div>
+
+
+{% endblock %}

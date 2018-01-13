@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header>
+        <center>
+            <h3>Manage {{ choice }}</h3>
+        </center>
+    </header>
+    <div class="post-article">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>article_title</th>
+                <th>create_time</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for article_tuple in article_list %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ article_tuple[0] | e }}</td>
+                <td>{{ article_tuple[1] }}</td>
+                <td><a href="{{ url_for('auth.v_editarticle', name=article_tuple[0]) }}">edit</a></td>
+                <td><a href="{{ url_for('auth.v_delete', name=article_tuple[0], flag='Article') }}">delete</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- 返回顶部 -->
+        <div class="pull-right">
+            <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+            <a class="back-to-top" href="#top">Back_to_top</a>
+        </div>
+
+    </div>
+
+{% endblock %}
