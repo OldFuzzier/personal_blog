@@ -74,7 +74,7 @@ class Tag(db.Model):
 class Category(db.Model):
     __tablename__ = 'category'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    cagory_name = db.Column(db.String(100), nullable=False)
+    category_name = db.Column(db.String(100), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     user_back = db.relationship('User', backref=db.backref('categorys'))
