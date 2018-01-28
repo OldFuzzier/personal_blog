@@ -16,8 +16,7 @@ def v_index():
 
 @main.route('/test')
 def v_test():
-    abort(404)
-    return
+    return render_template('test.html')
 
 
 @main.route('/archive')

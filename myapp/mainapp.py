@@ -23,7 +23,7 @@ db = SQLAlchemy()
 db.init_app(app)  # 应用中间件初始化
 
 #init markdown
-Markdown(app)
+Markdown(app, output_format='html5')
 
 # 配置session
 app.secret_key = SECRET_KEY  # secret_key需要24个字符的字符串

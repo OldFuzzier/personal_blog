@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
     <!--引入图标-->
     {% block head %}{% endblock %}
+
+    <script>{% block script_head %}{% endblock %}</script>
 </head>
 
 <body>
@@ -59,7 +61,7 @@
         </footer>
     </div>
 
-    <script>{% block script %}{% endblock %}</script>
+    <script>{% block script_body %}{% endblock %}</script>
 </body>
 
 </html>

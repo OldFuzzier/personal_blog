@@ -54,8 +54,11 @@ class Article(db.Model):
 
     # backref 是定义反向引用，可以通过 User 的 instance.infos 访问这个模型所写的所有info
     user_back = db.relationship('User', backref=db.backref('articles'))
-    tag_back = db.relationship('Tag', secondary=article_tag, backref=db.backref('articles'))
-    category_back = db.relationship('Category', secondary=article_category, backref=db.backref('articles'))
+    tag_back = db.relationship('Tag', secondary=article_tag, passive_deletes=True,
+                               backref=db.backref('articles'))
+    category_back = db.relationship('Category', secondary=article_category,
+                                    # 其中 passive_delete 支持多对多表关联删除，否则会报错！
+                                    passive_deletes=True, backref=db.backref('articles'))
 
     def __str__(self):
         return '%s, %s, %s' % (self.id, self.title, self.content)

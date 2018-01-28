@@ -71,7 +71,6 @@ def v_delete(name):
     try:
         flag = request.args.get('flag')
         if flag == 'Article':
-            print 'this is delete aritcle'
             obj = Article.query.filter_by(title=name).first()
             DeleteContent.article_clear(obj)
         elif flag == 'Tag':
@@ -85,6 +84,7 @@ def v_delete(name):
         db.session.delete(obj)
         db.session.commit()
         flash('Delete %s success!' % flag)
+        print flag
         return redirect(url_for('auth.v_arrange', flag=flag))
     except Exception as e:
         print e
@@ -112,7 +112,7 @@ def v_arrange(flag):
         category_list = Category.query.all()
         new_category_list = map(lambda category: (category.category_name, len(category.articles)), category_list)
         return render_template('manage_category.html', choice=flag, category_list=new_category_list)
-    elif flag == 'Archive':
+    elif flag == 'Article':
         user_id = current_user.id
         article_list = Article.query.with_entities(Article.title, Article.publish_time).\
             filter_by(user_id=user_id).all()
