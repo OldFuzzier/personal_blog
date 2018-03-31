@@ -30,7 +30,7 @@ class FormatArticle(object):
             total_dict[date.year].append([title, personal_flag, self.format_date(date)])
             # 提取年份
             year_set.add(date.year)
-            year_list = sorted(year_set, reverse=True)
+        year_list = sorted(year_set, reverse=True)
         return year_list, total_dict
 
 

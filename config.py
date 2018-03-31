@@ -2,12 +2,15 @@
 import os
 from datetime import timedelta
 
+# 获取环境变量
+MYSQL_U_P = os.environ.get('MYSQL_USER')
+
 # debug
 DEBUG = True
 
 
 # 数据库先关配置
-SQLALCHEMY_DATABASE_URI = 'mysql://root:wt322426@localhost/myblog?charset=utf8'
+SQLALCHEMY_DATABASE_URI = 'mysql://%s@localhost/myblog?charset=utf8' % MYSQL_U_P
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 
